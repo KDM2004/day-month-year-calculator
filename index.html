@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css"
+    />
+    <style>
+      #calculate-btn {
+        background-color: #ff9900; /* added button color */
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen">
+    <div class="container mx-auto p-4 pt-6 md:p-6 lg:p-12">
+      <h1 class="text-3xl font-bold mb-4">Date Calculator</h1>
+      <h2 class="text-1xl mb-7">
+        <b class="text-pretty">Description:</b> Welcome to our Date Calculator!
+        This website allows you to calculate the
+        <b>difference between two dates in days, months, and years.</b> Simply
+        enter the two dates in the provided input fields, and click the
+        "Calculate" button. The difference between the two dates will be
+        displayed in the "Result" section below the button. The result will show
+        the difference in days, months, and years, so you can easily understand
+        the time difference between the two dates. Whether you need to calculate
+        the time difference for personal or professional use, our Date
+        Calculator is a simple and easy-to-use tool that can help you get the
+        job done quickly and accurately. Try it out now and see how easy it is
+        to calculate the difference between two dates!
+      </h2>
+      <form>
+        <div class="flex flex-wrap -mx-3 mb-4">
+          <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="date1"
+            >
+              Date 1
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+              id="date1"
+              type="text"
+              placeholder="DD-MM-YYYY"
+            />
+            <div class="flatpickr-calendar" id="date1-calendar"></div>
+          </div>
+          <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+            <label
+              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              for="date2"
+            >
+              Date 2
+            </label>
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+              id="date2"
+              type="text"
+              placeholder="DD-MM-YYYY"
+            />
+            <div class="flatpickr-calendar" id="date2-calendar"></div>
+          </div>
+        </div>
+        <button
+          class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mb-5"
+          id="calculate-btn"
+        >
+          Calculate
+        </button>
+      </form>
+      <div class="mt-4" id="result">
+        <p class="text-lg font-bold">Result:</p>
+        <p id="days-diff"></p>
+        <p id="months-diff"></p>
+        <p id="years-diff"></p>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
