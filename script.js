@@ -5,6 +5,7 @@ const resultDiv = document.getElementById('result');
 const daysDiffElement = document.getElementById('days-diff');
 const monthsDiffElement = document.getElementById('months-diff');
 const yearsDiffElement = document.getElementById('years-diff');
+const themeToggleBtn = document.getElementById('theme-toggle');
 
 flatpickr("#date1", {
     dateFormat: "d-m-Y",
@@ -22,12 +23,14 @@ flatpickr("#date2", {
 
 calculateBtn.addEventListener('click', calculateDates);
 
+themeToggleBtn.addEventListener('click', toggleTheme);
+
 function calculateDates(event) {
     event.preventDefault(); // prevent form submission
     const date1 = new Date(date1Input.value.split('-').reverse().join('-'));
     const date2 = new Date(date2Input.value.split('-').reverse().join('-'));
 
-    if (!date1 ||!date2) {
+    if (!date1 || !date2) {
         alert('Please enter both dates');
         return;
     }
@@ -38,6 +41,19 @@ function calculateDates(event) {
     const yearsDiff = Math.floor(monthsDiff / 12);
 
     daysDiffElement.textContent = `Difference in days: ${daysDiff}`;
-    monthsDiffElement.textContent = `Difference in months:${monthsDiff}`;
+    monthsDiffElement.textContent = `Difference in months: ${monthsDiff}`;
     yearsDiffElement.textContent = `Difference in years: ${yearsDiff}`;
+}
+
+function toggleTheme() {
+    const body = document.body;
+    if (body.classList.contains('light-theme')) {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        themeToggleBtn.textContent = 'Switch to Light Mode';
+    } else {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        themeToggleBtn.textContent = 'Switch to Dark Mode';
+    }
 }
